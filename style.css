@@ -292,6 +292,7 @@ a {
 
     
     background-image: url(./images/cat-air-biru.jpg);
+    /* background-image: url(./images/cool-background\ \(2\).png); */
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -660,76 +661,98 @@ a {
 
 .information-page {
     width: 100%;
-    padding: 0 3rem;
     justify-content: center;
     /* text-align: center; */
-    background-color: var(--themeColor);
+    /* background-color: var(--themeColor); */
+    background-image: url(./images/cool-background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     /* margin-top: 10px; */
-    padding-top: 5rem;
+    padding: 10rem 3rem;
 }
-.information-title-section {
-    margin-bottom: 1rem;
-}
-.information-title {
-    font-size: 38px;
+.information-wrapper {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-}
-.information-line-section {
-    display: flex;
-    justify-content: center;
-}
-.line-information {
-    margin-top: 6px;
-    content: "";
-    background-color: #424656;
-    width: 40%;
-    height: 2px;
-}
-.map-section {
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-    border-radius: 10px;
-}
-.iframe-smanta {
     background: rgba( 255, 255, 255, 0.1 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4.5px );
     -webkit-backdrop-filter: blur( 4.5px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    padding: 2rem;
+    width: 100%;
+    height: 500px;
+}
+.map-section {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+.iframe-smanta {
+    border-radius: 0 10px 10px 0;
+    height: 500px;
 }
 .sub-information-section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
-    gap: 4rem;
+    padding: 0 5rem;
     /* background-color: #bbb; */
-    margin-top: 8rem;
 }
-.information-icon {
+.sub-information-section .title-information h5 {
+    font-size: 24px;
+}
+.sub-information-section .title-information h6 {
+    font-size: 12px;
+    width: 60%;
+    font-weight: var(--bold-2);
+}
+/* .information-details {
     display: flex;
     align-items: center;
-    gap: 8px;
+} */
+.information-icon {
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
-.bi-geo-alt-fill,
-.bi-clock-fill,
-.bi-telephone-fill,
+.bi-geo-alt,
+.bi-clock,
+.bi-telephone {
+    font-size: 20px;
+}
+.location-section {
+    margin-top: 1rem;
+}
 .location-title,
 .open-title,
 .contact-title {
-    font-size: 30px;
+    font-size: 16px;
     font-weight: 550;
     /* color: var(--textColor); */
 }
 .location-text,
 .open-text,
 .contact-text {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: var(--bold-3);
 }
+.media-section {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    align-items: center;
+    margin-top: 2rem;
+}
+/* .media-icon {
+    color: var(--bgColor);
+    background-color: #282a30;
+    border-radius: 5px;
+    padding: 6px;
+} */
+
 
 .wave4 {
     background-color: var(--themeColor);
@@ -737,7 +760,7 @@ a {
 
 .faq-page {
     background-color: var(--bgColor);
-    padding: 6rem 3rem;
+    padding: 0 3rem 3rem 3rem;
     margin-top: -10px;
     display: flex;
     justify-content: center;
@@ -794,11 +817,13 @@ a {
     font-weight: 500;
     color: var(--textColor);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 .accordion-text li .question-arrow .arrow {
     font-size: 20px;
     color: var(--textColor);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 .accordion-text li .question-arrow .arrow-active {
     font-size: 20px;
@@ -949,6 +974,9 @@ a {
     font-size: 14px;
     color: var(--bgColor);
 }
+.icon-title:hover {
+    color: var(--textColorLight);
+}
 .footer-mid-section-responsive {
     display: none;
 }
@@ -963,6 +991,9 @@ a {
     font-weight: 400;
     color: var(--textColorLight);
     font-size: 16px;
+}
+.design-name:hover {
+    color: var(--textColorYellow);
 }
 .footer-line-section {
     /* display: flex; */

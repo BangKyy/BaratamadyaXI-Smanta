@@ -145,12 +145,6 @@ a {
     position: relative;
     text-align: center;
     justify-content: center;
-} 
-.daily-title{
-    text-align: center;
-    color: var(--color-2);
-    font-weight: 600;
-    font-size: 30px;
 }
 .daily-box{
     /* display: flex;
@@ -160,7 +154,7 @@ a {
     padding: 10px 10px;
     margin-top: 2rem;
     /* width: 500%; */
-    background: var(--textColorYellow);
+    background: var(--textColor);
     border-radius: 0.4rem;
     transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
     width: 200px;
@@ -171,7 +165,7 @@ a {
 }
 .daily-box .bi{
     font-size: 1.4rem;
-    color: var(--main-color);
+    color: var(--themeColor);
     padding: 5px;
     /* border-radius: 100%; */
     /* border: 2px dashed var(--bg-color-2); */
@@ -180,7 +174,7 @@ a {
     font-size: 1.1rem;
     font-weight: 500;
     margin: 0.5rem 0;
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--bgColor);
 }
 
 .more-info-section {
@@ -232,34 +226,12 @@ a {
 } */
 
 .timeline-section {
-    padding-top: 8rem;
+    padding: 8rem;
     background-image: url(../images/faq-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-}
-.timeline-page {
     width: 100%;
-    padding: 0 3rem;
-    padding-top: 8rem;
-    padding-bottom: 2rem;
-}
-.timeline-title-section {
-    margin-bottom: 5rem;
-}
-.timeline-title {
-    font-size: 38px;
-    text-align: center;
-}
-.timeline-line-section {
-    display: flex;
-    justify-content: center;
-}
-.line-timeline {
-    margin-top: 6px;
-    content: "";
-    background-color: #424656;
-    width: 8%;
-    height: 2px;
+    padding: 6rem 3rem;
 }
 .wrapper {
     max-width: 1080px;
