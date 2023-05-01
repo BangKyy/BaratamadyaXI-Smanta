@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="style.css">
 
     <title>BARATA MADYA XI SMANTA 2023</title>
+
+    <!-- Sweet alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js" integrity="sha256-t0FDfwj/WoMHIBbmFfuOtZv1wtA977QCfsFR3p1K4No=" crossorigin="anonymous"></script>
     
 </head>
 
@@ -46,33 +49,33 @@
                     <i class="bi bi-x"></i>
                 </span>
                 <h2>Masuk</h2>
-                <form action="#">
+                <div class="login-form">
                     <div class="input-box">
-                        <span class="icon">
+                        <div class="icon">
                             <i class="bi bi-person"></i>
-                        </span>
-                        <input type="text" name="" id="" required>
+                        </div>
+                        <input type="text" name="" class="username-input" required>
                         <label for="">Username</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon">
-                            <i class="bi bi-eye"></i>
-                            <!-- <i class="bi bi-eye-slash icon-active"></i> -->
-                        </span>
-                        <input type="password" name="" id="" required>
+                        <div class="icon">
+                            <i class="bi bi-eye icon-before eye-icon-disabled"></i>
+                            <i class="bi bi-eye-slash icon-after"></i>
+                        </div>
+                        <input type="password" name="" class="password-input" required>
                         <label for="">Password</label>
                     </div>
                     <div class="remember-forgot">
                         <label for="">
-                            <input type="checkbox" name="" id="">Ingat saya
+                            <input type="checkbox" name="">Ingat saya
                         </label>
                         <a href="">Lupa Password?</a>
                     </div>
-                    <button type="submit" class="btn">Login</button>
+                    <input type="submit" class="btn form-btn">Login</input>
                     <div class="login-register">
                         <p>Belum memiliki akun? <a href="#" class="register-link">Daftar</a></p>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     <!-- </div> -->
@@ -427,6 +430,7 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <script type="module" src="./utils/login-popup.js"></script>
+    <script type="module" src="./main.js"></script>
 </body>
 </html>

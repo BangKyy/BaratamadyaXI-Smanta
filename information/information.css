@@ -44,12 +44,23 @@ a {
     position: fixed;
     display: flex;
     width: 100%;
-    background-color: var(--themeColor);
+    background-color: transparent;
     /* background-color: var(--bgColor); */
     align-items: center;
     padding: 8px 30px;
     z-index: 99;
     /* box-shadow: 0.3px 2px rgba(0, 0, 0, 0.4); */
+}
+.navbar-active {
+    /* background: var(--bgColor); */
+    /* box-shadow: 0.3px 1px 1px rgba(0, 0, 0, 0.4); */
+    transition: 0.4s;
+    background: transparent;
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 .navbar-left-section {
     width: 100%;
@@ -105,6 +116,154 @@ a {
     transition: all .5s ease;
 } */
 
+.main-info-page {
+    /* z-index: -99; */
+    padding: 10rem 5rem;
+    background-size: cover;
+    background-image: url(../images/kevin-paes-bivb76x323s-unsplash.jpg);
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10rem;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--bgColor); */
+    gap: 18rem;
+}
+.left-info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.left-title-info h2 {
+    font-size: 42px;
+    width: 100%;
+}
+.left-title-info h5 {
+    font-size: 14px;
+    width: 100%;
+    font-weight: var(--bold-2);
+}
+.left-title-info h6 {
+    margin-top: 12px;
+    font-weight: 500;
+}
+.left-title-info h6 span {
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: 700;
+    width: 100%;
+}
+.tags-info {
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+    gap: 12px;
+}
+.tag-info {
+    background: transparent;
+    border: 1px solid var(--textColor);
+    border-radius: 20px;
+    padding: 4px 10px;
+}
+.tag-info:hover {
+    background: #f5f9ffab;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border: 1px solid rgba(255, 255, 255, 0.31);
+}
+.right-info-section {
+    background-color: var(--bgColor);
+    padding: 10rem 2rem;
+    background: #f5f9ffab;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), 0 8px 30px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border: 1px solid rgba(255, 255, 255, 0.31);
+}
+.right-date-info {
+    display: flex;
+    justify-content: space-between;
+}
+.flip-card {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2);
+    border-radius: .1em;
+}
+.top,
+.bottom,
+.flip-card .top-flip,
+.flip-card .bottom-flip {
+    height: .75em;
+    line-height: 1;
+    padding: .25em;
+    overflow: hidden;
+}
+.top,
+.flip-card .top-flip {
+    background-color: #f7f7f7;
+    border-top-right-radius: .1em;
+    border-top-left-radius: .1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.bottom,
+.flip-card .bottom-flip {
+    background-color: white;
+    display: flex;
+    align-items: flex-end;
+    border-bottom-right-radius: .1em;
+    border-bottom-left-radius: .1em;
+}
+.flip-card .top-flip {
+    position: absolute;
+    width: 100%;
+    animation: flip-top 250ms ease-in;
+    transform-origin: bottom;
+}
+@keyframes flip-top {
+    100% {
+      transform: rotateX(90deg);
+    }
+}
+.flip-card .bottom-flip {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    animation: flip-bottom 250ms ease-out 250ms;
+    transform-origin: top;
+    transform: rotateX(90deg);
+}
+@keyframes flip-bottom {
+    100% {
+      transform: rotateX(0deg);
+    }
+}
+.time-container {
+    display: flex;
+    gap: .5em;
+    justify-content: center;
+}
+.container-segment {
+    display: flex;
+    flex-direction: column;
+    gap: .1em;
+    align-items: center;
+}
+.segment {
+    display: flex;
+    gap: .1em;
+}
+.segment-title {
+    font-size: 1rem;
+}
+    
 .competition-branch-page {
     width: 100%;
     padding: 0 3rem;
@@ -113,68 +272,6 @@ a {
     background-color: var(--bgColor);
     padding-top: 8rem;
     padding-bottom: 2rem;
-}
-.competition-branch-title-section {
-    margin-bottom: 5rem;
-}
-.competition-branch-title {
-    font-size: 38px;
-}
-.competition-branch-line-section {
-    display: flex;
-    justify-content: center;
-}
-.line-competition-branch {
-    margin-top: 6px;
-    content: "";
-    background-color: #424656;
-    width: 20%;
-    height: 2px;
-}
-.daily-container{
-    /* height: 40vh; */
-    background-color: var(--bg-color-2);
-    padding-bottom: 4rem;
-    margin: 0 auto;
-}
-.daily-content{
-    display: flex;
-    /* grid-template-columns: repeat(3,1fr); */
-    gap: 1rem;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-    justify-content: center;
-}
-.daily-box{
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; */
-    padding: 10px 10px;
-    margin-top: 2rem;
-    /* width: 500%; */
-    background: var(--textColor);
-    border-radius: 0.4rem;
-    transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
-    width: 200px;
-}
-.daily-box:hover{
-    transform: scale(1.05);
-    transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.daily-box .bi{
-    font-size: 1.4rem;
-    color: var(--themeColor);
-    padding: 5px;
-    /* border-radius: 100%; */
-    /* border: 2px dashed var(--bg-color-2); */
-}
-.daily-box h2{
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0.5rem 0;
-    color: var(--bgColor);
 }
 
 .more-info-section {
@@ -275,7 +372,7 @@ a {
     width: 15px;
     background: var(--boxColor);;
     top: 28px;
-    z-index: -1;
+    /* z-index: -1; */
     transform: rotate(45deg);
 }
 .row-1 section::before {
@@ -330,16 +427,15 @@ a {
 .row section p {
     margin: 10px 0 17px 0;
 }
-.row section .bottom a {
+.row section .details-date {
     text-decoration: none;
-    background-color: var(--textColor);
-    color: var(--bgColor);
-    padding: 7px 15px;
+    background-color: var(--boxColor);
+    color: var(--textColor);
+    padding: 8px 0;
     border-radius: 5px;
-    font-size: 17px;
-    font-weight: var(--bold-3);
+    font-size: 24px;
 }
-.row section .bottom i {
+.row section .details-date h6 {
     font-weight: var(--bold-2);
 }
 

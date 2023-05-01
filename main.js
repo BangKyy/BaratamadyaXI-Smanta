@@ -1,10 +1,9 @@
 const wrapper = document.querySelector('.wrapper');
-// const loginLink = document.querySelector('.login-link');
 const btnPopup = document.querySelector('.btnLogin-popup');
 const iconClose = document.querySelector('.icon-close');
 
 btnPopup.addEventListener('click', () => {
-    wrapper.classList.add('.active-popup');
+    wrapper.classList.add('active-popup');
 });
 
 iconClose.addEventListener('click', () => {
@@ -22,15 +21,10 @@ window.addEventListener("scroll", () => {
 window.scrollY > 0 ?   navbar.classList.add("navbar-active") : navbar.classList.remove("navbar-active");
 });
 
-// Icon password eye
-const iconEye = document.querySelector('.icon');
-const iconEye1 = document.querySelector('.bi-eye');
-const iconEye2 = document.querySelector('icon-active');
-
-iconEye1.addEventListener('click', () => {
-    iconEye.classList.add()
-})
-
+// Login function
+function myLogin () {
+    
+}
 
 // Slide down FAQ
 let li = document.querySelectorAll(".faq-text li");
