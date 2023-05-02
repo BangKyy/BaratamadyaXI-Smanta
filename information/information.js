@@ -9,31 +9,31 @@ window.scrollY > 0 ?   navbar.classList.add("navbar-active") : navbar.classList.
 
 
 // Timer countdown
-const countToDate = new Date().setHours(new Date().getHours() + 24);
-// const countToDate = new Date();
-// countToDate.setFullYear(2023, 4, 1);
-// countToDate.setHours(0, 0, 0, 0);
-let previousTimeBetweenDates
-setInterval(() => {
-  const currentDate = new Date();
-  const timeBetweenDates = Math.ceil((countToDate - currentDate) / 1000);
-  flipAllCards(timeBetweenDates);
+// const countToDate = new Date().setHours(new Date().getHours() + 24);
+// // const countToDate = new Date();
+// // countToDate.setFullYear(2023, 4, 1);
+// // countToDate.setHours(0, 0, 0, 0);
+// let previousTimeBetweenDates
+// setInterval(() => {
+//   const currentDate = new Date();
+//   const timeBetweenDates = Math.ceil((countToDate - currentDate) / 1000);
+//   flipAllCards(timeBetweenDates);
 
-  previousTimeBetweenDates = timeBetweenDates
-}, 250)
+//   previousTimeBetweenDates = timeBetweenDates
+// }, 250)
 
-function flipAllCards(time) {
-  const seconds = time % 60;
-  const minutes = Math.floor(time / 60) % 60;
-  const hours = Math.floor(time / 1000);
+// function flipAllCards(time) {
+//   const seconds = time % 60;
+//   const minutes = Math.floor(time / 60) % 60;
+//   const hours = Math.floor(time / 120);
   
-  flip(document.querySelector("[data-hours-tens]"), Math.floor(hours / 10))
-  flip(document.querySelector("[data-hours-ones]"), hours % 10)
-  flip(document.querySelector("[data-minutes-tens]"), Math.floor(minutes / 10))
-  flip(document.querySelector("[data-minutes-ones]"), minutes % 10)
-  flip(document.querySelector("[data-seconds-tens]"), Math.floor(seconds / 10))
-  flip(document.querySelector("[data-seconds-ones]"), seconds % 10)
-}
+//   flip(document.querySelector("[data-hours-tens]"), Math.floor(hours / 10))
+//   flip(document.querySelector("[data-hours-ones]"), hours % 10)
+//   flip(document.querySelector("[data-minutes-tens]"), Math.floor(minutes / 10))
+//   flip(document.querySelector("[data-minutes-ones]"), minutes % 10)
+//   flip(document.querySelector("[data-seconds-tens]"), Math.floor(seconds / 10))
+//   flip(document.querySelector("[data-seconds-ones]"), seconds % 10)
+// }
 
 function flip(flipCard, newNumber) {
   const topHalf = flipCard.querySelector(".top")

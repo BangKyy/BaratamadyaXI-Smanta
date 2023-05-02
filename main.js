@@ -10,10 +10,6 @@ iconClose.addEventListener('click', () => {
     wrapper.classList.remove('active-popup');
 });
 
-// loginLink.addEventListener('click', () => {
-//     wrapper.classList.add('.active');
-// });
-
 // Header background change On Scroll
 let navbar = document.querySelector(".navbar-section");
 
@@ -21,22 +17,26 @@ window.addEventListener("scroll", () => {
 window.scrollY > 0 ?   navbar.classList.add("navbar-active") : navbar.classList.remove("navbar-active");
 });
 
-// Login function
-function myLogin () {
-    
-}
+// Running text
+// function runningText(textAnimation) {
+//     let textSelected = 0;
+//     for (let i = 0; i < textAnimation.options.length; i++) {
+//       if (textAnimation.options[i].selected) {
+//         textSelected++;
+//       }
+//     console.log(runningText);
+//     }
+//     return textSelected;
+// }
 
 // Slide down FAQ
 let li = document.querySelectorAll(".faq-text li");
-// let question = document.querySelector(".question-arrow");
-// let arrow = document.querySelectorAll(".arrow-active");
 
 for (var i = 0; i < li.length; i++) {
     li[i].addEventListener("click", (e) => {
         let clickedLi;
         if(e.target.classList.contains("question-arrow")) {
             clickedLi = e.target.parentElement;
-            // question.classList.add("arrowActive");
         } else {
             clickedLi = e.target.parentElement.parentElement;
         }
@@ -44,37 +44,6 @@ for (var i = 0; i < li.length; i++) {
     });
 }
 
-var slideIndex = 1;
-    showSlide(slideIndex);
-
-    function nextslide(n){
-        showSlide(slideIndex += n);
-    }
-
-    function dotslide(n){
-        showSlide(slideIndex = n);
-    }
-
-    function showSlide(n) {
-        var i;
-        var slides = document.getElementsByClassName("imgslide");
-        var dot = document.getElementsByClassName("dot");
-            
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length;
-        }
-        for (i = 0; i < slides.length; i++) {            
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < slides.length; i++) {              
-            dot[i].className = dot[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dot[slideIndex - 1].className += " active";
-}
 
 const year = document.querySelector('#current-year');
 
