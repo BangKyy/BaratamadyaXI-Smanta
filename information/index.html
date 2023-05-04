@@ -20,6 +20,10 @@
 
     <title>Informasi BARATA MADYA XI SMANTA</title>
 
+    <!-- Sweet alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js" integrity="sha256-t0FDfwj/WoMHIBbmFfuOtZv1wtA977QCfsFR3p1K4No=" crossorigin="anonymous"></script>
+    
+
 </head>
 
 <body>
@@ -30,14 +34,58 @@
                 <h4 class="main-title-navbar">BARATA MADYA XI SMANTA</h4>
             </a>
         </div>
-        <a href="../" class="navbar-right-section">
-            <h4 class="main-option-navbar">Beranda</h4>
-        </a>
+        <div class="navbar-right-section navbar">
+            <a href="../" class="main-option-navbar">Beranda</a>
+            <button class="btnNon btnActive">Masuk</button>
+        </div>
         <div class="sign-btn-container">
             <!-- <a href="" class="sign-btn login-btn btn btnLogin-popup">Masuk</a> -->
             <button class="sign-btn login-btn btn btnLogin-popup">Masuk</button>
         </div>
+        <div class="menu-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
     </nav>
+
+     <!-- <div class="main-wrapper"> -->
+        <form class="wrapper">
+            <div class="form-box login">
+                <span class="icon-close">
+                    <i class="bi bi-x"></i>
+                </span>
+                <h2>Masuk</h2>
+                <div class="login-form">
+                    <div class="input-box">
+                        <div class="icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+                        <input type="text" name="" class="username-input" required>
+                        <label for="">Username</label>
+                    </div>
+                    <div class="input-box">
+                        <div class="icon">
+                            <i class="bi bi-eye icon-before eye-icon-disabled"></i>
+                            <i class="bi bi-eye-slash icon-after"></i>
+                        </div>
+                        <input type="password" name="" class="password-input" required>
+                        <label for="">Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label for="">
+                            <input type="checkbox" name="">Ingat saya
+                        </label>
+                        <a href="">Lupa Password?</a>
+                    </div>
+                    <input type="submit" class="btn form-btn"></input>
+                    <div class="login-register">
+                        <p>Belum memiliki akun? <a href="#" class="register-link">Daftar</a></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <!-- </div> -->
 
     <div class="main-info-page">
             <div class="left-info-section">
@@ -46,13 +94,45 @@
                     <h5>Dengan BARATA MADYA, Semangat Menggapai Asa, Membangun Generasi Cerdas Penerus Bangsa.</h5>
                     <h6>by <span>Praja Wira SMANTA</span></h6>
                 </div>
+                <div class="validate-info">
+                    <div class="validate-upload-info validate-btn">
+                        <i class="bi bi-cloud-arrow-up"></i>
+                        <h4 class="upload-title">Unggah File</h4>
+                    </div>
+                    <div class="validate-upload-info validate-btn">
+                        <i class="bi bi-cloud-arrow-down"></i>
+                        <h4 class="upload-title">Unduh File</h4>
+                    </div>
+                </div>
                 <div class="tags-info">
                     <h6 class="tag-info tags1">SMAN 01 Talun</h6>
                     <h6 class="tag-info tags2">PMR</h6>
                     <h6 class="tag-info tags3">Kompetisi</h6>
-                    <a href="#" class="share-info">
+                    <div class="share-info">
                         <i class="bi bi-share-fill"></i>
-                    </a>
+                    </div>
+                </div>
+                <div class="popup">
+                    <header class="popup-header">
+                      <span>Bagikan</span>
+                      <div class="close"><i class="bi bi-x"></i></div>
+                    </header>
+                    <div class="content">
+                      <p>Bagikan link ini lewat</p>
+                      <ul class="icons">
+                        <a href="https://web.facebook.com/sharer.php?u=sciesixx.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=sciesixx.com&text=science six" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://lineit.line.me/share/ui?url=sciesixx.com&text=Science Six" target="_blank"><i class="bi bi-line"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone&text=Science Sixx" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://telegram.me/share/url?urlsciesixx.com&text=Science Sixx" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                      </ul>
+                      <p>Atau salin link</p>
+                      <div class="field">
+                        <i class="url-icon bi bi-link-45deg"></i>
+                        <input type="text" readonly value="baratamadya-smanta.site" class="input-copy">
+                        <button class="btn-copy">Salin</button>
+                      </div>
+                    </div>
                 </div>
             </div>
             <div class="right-info-section">
@@ -80,15 +160,15 @@
                 <div class="right-line-info">
                     <div class="date-line"></div>
                 </div>
-                <div class="time-container">
+                <!-- <div class="time-container">
                     <div class="container-segment">
                         <div class="segment-title">DAYS</div>
                             <div class="segment">
-                                <div class="flip-card" data-hours-tens>
+                                <div class="flip-card" data-days-tens>
                                 <div class="top">3</div>
                                 <div class="bottom">3</div>
                             </div>
-                            <div class="flip-card" data-hours-ones>
+                            <div class="flip-card" data-days-ones>
                                 <div class="top">2</div>
                                 <div class="bottom">2</div>
                             </div>
@@ -120,7 +200,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="container-segment">
+                    <div class="container-segment">
                         <div class="segment-title">Seconds</div>
                             <div class="segment">
                                 <div class="flip-card" data-seconds-tens>
@@ -132,10 +212,10 @@
                                 <div class="bottom">0</div>
                             </div>
                         </div>
-                    </div> -->
-                </div>
+                    </div>
+                </div> -->
                 <div class="validation-btn-section">
-                    <button type="submit" class="validation-btn">DAFTAR</button>
+                    <a href="https://forms.gle/sXfAJJ5ud771Fod57" class="validation-btn" target="_blank">DAFTAR</a>
                 </div>
             </div>
     </div>
@@ -216,7 +296,7 @@
     </div>
 
     <div class="timeline-section">
-        <div class="wrapper">
+        <div class="timeline-wrapper">
             <div class="center-line">
                 <a href="#" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
             </div>
@@ -311,7 +391,8 @@
         </div>
     </div>
 
-    <script src="../information/information.js"></script>
+    <script type="module" src="../utils/login-popup.js"></script>
+    <script type="module" src="../information/information.js"></script>
 </body>
 
 </html>

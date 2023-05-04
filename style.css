@@ -68,21 +68,31 @@ a {
     align-items: center;
 }
 .logos-navbar {
-    width: 80px;
+    width: 50px;
 }
 .main-title-navbar {
-    font-size: 24px;
+    font-size: 18px;
     margin-left: 8px;
 }
 .navbar-right-section {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     width: 100%;
 }
 .main-option-navbar {
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
     font-weight: 600;
+}
+.btnActive {
+    display: none;
+    border: 2px solid #42465664;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: transparent;
 }
 .sign-btn-container {
     position: relative;
@@ -93,11 +103,13 @@ a {
 .sign-btn {
     border: 2px solid #42465664;
     border-radius: 8px;
-    padding: 6px 16px;
+    padding: 4px 12px;
     font-weight: 500;
+    font-size: 12px;
     cursor: pointer;
     background-color: transparent;
 }
+.btnActive:hover,
 .login-btn:hover {
     background-color: var(--textColor);
     color: var(--bgColor);
@@ -112,9 +124,34 @@ a {
     transition: all .5s ease;
 } */
 
-/* .main-wrapper {
+/*===== Menu Icon =====*/
+.menu-icon{
     display: none;
-} */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+    transition: 0.3s;
+}
+.menu-icon div{
+    display: block;
+    background: var(--textColor);
+    height: 2px;
+    width: 24px;
+    transition: 0.3s;
+}
+.move .line1{
+    transform: rotate(-45deg) translate(-5px,5px);
+}
+.move .line2{
+    opacity: 0;
+}
+.move .line3{
+    transform: rotate(45deg) translate(-5px,-5px);
+}
+
 .wrapper{
     width: 100%;
     /* position: relative; */
@@ -275,7 +312,6 @@ a {
     text-decoration: underline;
 }
 
-
 .home-page-section {
     /* background-color: gray; */
     position: relative;
@@ -287,7 +323,6 @@ a {
     /* z-index: -99; */
     padding: 10rem 0;
 
-    
     /* background-image: url(./images/cat-air-biru.jpg); */
     background-image: url(./images/1.svg);
     /* background-image: url(./images/cool-background\ \(2\).png); */
@@ -870,21 +905,6 @@ a {
 
 
 @media screen and (max-width: 1024px) {
-    .main-title-navbar {
-        font-size: 20px;
-    }
-    .logos-navbar {
-        width: 60px;
-    }
-    .main-option-navbar {
-        font-size: 14px;
-    }
-    .sign-btn {
-        border: 1.5px solid var(--textColor);
-        padding: 4px 12px;
-        font-size: 14px;
-        border-radius: 5px;
-    }
     .home-title {
         font-size: 40px;
     }
@@ -959,7 +979,7 @@ a {
         font-size: 16px;
     }
     .logos-navbar {
-        width: 50px;
+        width: 45px;
     }
     .main-option-navbar {
         font-size: 12px;
@@ -1100,16 +1120,40 @@ a {
     .logos-navbar {
         width: 32px;
     }
+    .navbar-right-section{
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 300;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.59);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4.5px );
+        -webkit-backdrop-filter: blur( 4.5px );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2rem;
+        padding: 100px 20px;
+        transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
     .main-option-navbar {
-        font-size: 10px;
+        font-size: 18px;
+    }
+    .btnActive {
+        display: block;
+    }
+    .menu-icon{
+        display: flex;
+    }
+    .open-menu{
+        right: 0;
+        transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     .sign-btn {
-        padding: 2px 8px;
-        font-size: 10px;
+        display: none;
     }
-    /* .home-main-title-section {
-        padding-left: 1px;
-    } */
     .home-title {
         font-size: 20px;
     }
@@ -1198,15 +1242,15 @@ a {
     }
 }
 @media screen and (max-width: 420px) {
+    .navbar-section {
+        padding: 8px 1rem;
+    }
     .main-title-navbar {
         /* font-size: 10px; */
         display: none;
     }
     .logos-navbar {
         width: 32px;
-    }
-    .main-option-navbar {
-        display: none;
     }
     .sign-btn {
         display: none;

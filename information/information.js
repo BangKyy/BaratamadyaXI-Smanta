@@ -1,70 +1,111 @@
-// Header background change On Scroll
-let navbar = document.querySelector(".navbar-section");
+function navbarActive() {
+  let menu = document.querySelector('.menu-icon');
+  let navbar = document.querySelector('.navbar-right-section');
+  let navbarLogin = document.querySelector('.btnActive');
+  let wrappers = document.querySelector('.wrapper');
 
-window.addEventListener("scroll", () => {
-window.scrollY > 0 ?   navbar.classList.add("navbar-active") : navbar.classList.remove("navbar-active");
-});
+  menu.addEventListener('click', () => {
+      navbar.classList.toggle('open-menu');
+      menu.classList.toggle("move");
+  });
 
-// Icon password eye
+  navbarLogin.addEventListener("click", () => {
+      navbar.classList.remove("open-menu");
+      menu.classList.remove("move");
+      wrappers.classList.add('active-popup');
+  });
 
-
-// Timer countdown
-// const countToDate = new Date().setHours(new Date().getHours() + 24);
-// // const countToDate = new Date();
-// // countToDate.setFullYear(2023, 4, 1);
-// // countToDate.setHours(0, 0, 0, 0);
-// let previousTimeBetweenDates
-// setInterval(() => {
-//   const currentDate = new Date();
-//   const timeBetweenDates = Math.ceil((countToDate - currentDate) / 1000);
-//   flipAllCards(timeBetweenDates);
-
-//   previousTimeBetweenDates = timeBetweenDates
-// }, 250)
-
-// function flipAllCards(time) {
-//   const seconds = time % 60;
-//   const minutes = Math.floor(time / 60) % 60;
-//   const hours = Math.floor(time / 120);
-  
-//   flip(document.querySelector("[data-hours-tens]"), Math.floor(hours / 10))
-//   flip(document.querySelector("[data-hours-ones]"), hours % 10)
-//   flip(document.querySelector("[data-minutes-tens]"), Math.floor(minutes / 10))
-//   flip(document.querySelector("[data-minutes-ones]"), minutes % 10)
-//   flip(document.querySelector("[data-seconds-tens]"), Math.floor(seconds / 10))
-//   flip(document.querySelector("[data-seconds-ones]"), seconds % 10)
-// }
-
-function flip(flipCard, newNumber) {
-  const topHalf = flipCard.querySelector(".top")
-  const startNumber = parseInt(topHalf.textContent)
-  if (newNumber === startNumber) return
-
-  const bottomHalf = flipCard.querySelector(".bottom")
-  const topFlip = document.createElement("div")
-  topFlip.classList.add("top-flip")
-  const bottomFlip = document.createElement("div")
-  bottomFlip.classList.add("bottom-flip")
-
-  top.textContent = startNumber
-  bottomHalf.textContent = startNumber
-  topFlip.textContent = startNumber
-  bottomFlip.textContent = newNumber
-
-  topFlip.addEventListener("animationstart", e => {
-    topHalf.textContent = newNumber
-  })
-  topFlip.addEventListener("animationend", e => {
-    topFlip.remove()
-  })
-  bottomFlip.addEventListener("animationend", e => {
-    bottomHalf.textContent = newNumber
-    bottomFlip.remove()
-  })
-  flipCard.append(topFlip, bottomFlip)
+  window.addEventListener('scroll', () => {
+      navbar.classList.remove("open-menu");
+      menu.classList.remove("move");
+  });
 }
 
-// Footer copyright
-const year = document.querySelector('#current-year');
+function boxLogin () {
+  const wrapper = document.querySelector('.wrapper');
+  const btnPopup = document.querySelector('.btnLogin-popup');
+  const iconClose = document.querySelector('.icon-close');
 
-year.innerHTML = new Date().getFullYear(); 
+  btnPopup.addEventListener('click', () => {
+      wrapper.classList.add('active-popup');
+  });
+
+  iconClose.addEventListener('click', () => {
+      wrapper.classList.remove('active-popup');
+  });
+}
+
+function headerScroll () {
+  let navbarScroll = document.querySelector(".navbar-section");
+
+  window.addEventListener("scroll", () => {
+  window.scrollY > 0 ? navbarScroll.classList.add("navbar-active") : navbarScroll.classList.remove("navbar-active");
+  });
+}
+
+function shareModal () {
+  const iconShare = document.querySelector(".share-info");
+  const popup = document.querySelector(".popup");
+  const close = popup.querySelector(".close");
+  const field = popup.querySelector(".field");
+  const input = field.querySelector(".input-copy");
+  const copy = field.querySelector(".btn-copy");
+
+  iconShare.onclick = ()=>{
+    popup.classList.toggle("show");
+  }
+  close.onclick = ()=>{
+    iconShare.click();
+  }
+  copy.onclick = ()=>{
+    input.select();
+    input.setSelectionRange(0, 99999);
+    if(document.execCommand("copy")){ //if the selected text copy
+      field.classList.add("active");
+      copy.innerText = "Disalin";
+      navigator.clipboard.writeText(input.value);
+      copyAlert();
+      // popup.style.display = "none";
+      setTimeout(()=>{
+        window.getSelection().removeAllRanges(); //remove selection from document
+        field.classList.remove("active");
+        copy.innerText = "Salin";
+      }, 1000);
+    }
+  }
+}
+
+function copyAlert () {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    // didOpen: (toast) => {
+    //   toast.addEventListener('mouseenter', Swal.stopTimer)
+    //   toast.addEventListener('mouseleave', Swal.resumeTimer)
+    // }
+  })
+  Toast.fire({
+    icon: 'success',
+    title: 'Link berhasil disalin'
+  })
+}
+
+
+
+
+// Footer copyright
+function copyrightDate () {
+  const year = document.querySelector('#current-year');
+
+  year.innerHTML = new Date().getFullYear();
+}
+
+navbarActive();
+shareModal();
+// flip();
+boxLogin();
+headerScroll();
+copyrightDate();
