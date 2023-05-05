@@ -375,9 +375,10 @@ a {
 .validate-btn:hover {
     background-color: var(--textBlackLight);
 }
-.validate-btn h4 {
+.validate-btn a {
     font-size: 12px;
     font-weight: 300;
+    color: var(--bgColor);
 }
 .tags-info {
     display: flex;
@@ -1237,9 +1238,28 @@ a {
         padding: 30px;
     }
     .popup {
-        padding: 0;
-        /* max-width: 269px; */
-        width: 100%;
+        max-width: 280px;
+    }
+    .content p {
+        font-size: 14px;
+    }
+    .content .icons a {
+        height: 30px;
+        width: 30px;
+        font-size: 12px;
+    }
+    .content .field {
+        height: 35px;
+    }
+    .field i {
+        font-size: 14px;
+    }
+    .field .input-copy {
+        font-size: 12px;
+    }
+    .field .btn-copy {
+        padding: 2px 14px;
+        font-size: 12px;
     }
     .footer-top-section {
         display: flex;

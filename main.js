@@ -71,6 +71,14 @@ function slideDownfaq () {
     }
 }
 
+function scrollTop () {
+    let scrollTopBtn = document.querySelector(".scroll-top");
+
+    window.addEventListener("scroll", () => {
+        scrollTopBtn.classList.toggle("scroll-active", window.scrollY >= 400);
+    });
+}
+
 function copyrightDate () {
     const year = document.querySelector('#current-year');
 
@@ -81,4 +89,5 @@ navbarActive();
 boxLogin();
 headerScroll();
 slideDownfaq();
+scrollTop();
 copyrightDate();
