@@ -221,7 +221,7 @@ a {
     transition: height .2s ease;
 }
 .form-box form {
-    padding: 0 40px;
+    padding: 0 30px;
     width: 100%;
 }
 .wrapper .icon-close {
@@ -1231,6 +1231,12 @@ a {
     .sign-btn {
         display: none;
     }
+    .wrapper{
+        padding: 8rem 4rem;
+    }
+    .form-box {
+        height: 400px;
+    }
     .home-title {
         font-size: 20px;
     }
@@ -1331,6 +1337,12 @@ a {
     }
     .sign-btn {
         display: none;
+    }
+    .wrapper{
+        padding: 8rem 2rem;
+    }
+    .form-box {
+        height: 450px;
     }
     .home-page-section {
         display: flex;
