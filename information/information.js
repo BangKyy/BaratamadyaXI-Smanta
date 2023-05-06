@@ -2,7 +2,7 @@ function navbarActive() {
   let menu = document.querySelector('.menu-icon');
   let navbar = document.querySelector('.navbar-right-section');
   let navbarLogin = document.querySelector('.btnActive');
-  let wrappers = document.querySelector('.wrapper');
+  let wrapper = document.querySelector('.wrapper');
 
   menu.addEventListener('click', () => {
       navbar.classList.toggle('open-menu');
@@ -18,6 +18,18 @@ function navbarActive() {
   window.addEventListener('scroll', () => {
       navbar.classList.remove("open-menu");
       menu.classList.remove("move");
+  });
+
+  window.addEventListener("scroll", () => {
+      wrapper.classList.remove('active-popup');
+  });
+}
+
+function headerScroll () {
+  let navbarScroll = document.querySelector(".navbar-section");
+
+  window.addEventListener("scroll", () => {
+  window.scrollY > 0 ? navbarScroll.classList.add("navbar-active") : navbarScroll.classList.remove("navbar-active");
   });
 }
 
@@ -35,12 +47,21 @@ function boxLogin () {
   });
 }
 
-function headerScroll () {
-  let navbarScroll = document.querySelector(".navbar-section");
+function togglePassword () {
+  const inputPassword = document.querySelector(".password-input");
+  const toggleEyeBefore = document.querySelector(".icon-after");
+  const toggleEyeAfter = document.querySelector(".icon-before");
 
-  window.addEventListener("scroll", () => {
-  window.scrollY > 0 ? navbarScroll.classList.add("navbar-active") : navbarScroll.classList.remove("navbar-active");
-  });
+  toggleEyeBefore.addEventListener('click', () => {
+      if (inputPassword.type === "password") {
+          inputPassword.type = "text";
+      }
+  })
+  toggleEyeAfter.addEventListener("click", () => {
+      if (inputPassword.type === "text") {
+          inputPassword.type = "password";
+      }
+  })
 }
 
 function shareModal () {
@@ -93,19 +114,34 @@ function copyAlert () {
   })
 }
 
+function dateInfo () {
+  const dateMonth = new Date();
+  const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+  const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+  const dateDay = new Date();
+  const d = new Date();
 
+  document.querySelector(".month").innerHTML = months[dateMonth.getMonth()];
+  document.querySelector(".date-day").innerHTML = dateDay.getDay();
+  document.querySelector(".day").innerHTML = days[d.getDay()];
+}
 
+function dateCountdown () {
+  const date = new Date();
+}
 
-// Footer copyright
 function copyrightDate () {
   const year = document.querySelector('#current-year');
+  const d = new Date();
 
-  year.innerHTML = new Date().getFullYear();
+  year.innerHTML = d.getFullYear();
 }
 
 navbarActive();
+headerScroll();
 shareModal();
 // flip();
 boxLogin();
-headerScroll();
+dateInfo();
+dateCountdown();
 copyrightDate();

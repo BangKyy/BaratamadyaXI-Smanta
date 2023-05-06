@@ -21,6 +21,14 @@ function navbarActive() {
     });
 }
 
+function headerScroll () {
+    let navbarScroll = document.querySelector(".navbar-section");
+
+    window.addEventListener("scroll", () => {
+    window.scrollY > 0 ? navbarScroll.classList.add("navbar-active") : navbarScroll.classList.remove("navbar-active");
+    });
+}
+
 function boxLogin () {
     const wrapper = document.querySelector('.wrapper');
     const btnPopup = document.querySelector('.btnLogin-popup');
@@ -33,14 +41,27 @@ function boxLogin () {
     iconClose.addEventListener('click', () => {
         wrapper.classList.remove('active-popup');
     });
-}
-
-function headerScroll () {
-    let navbarScroll = document.querySelector(".navbar-section");
 
     window.addEventListener("scroll", () => {
-    window.scrollY > 0 ? navbarScroll.classList.add("navbar-active") : navbarScroll.classList.remove("navbar-active");
-    });
+        wrapper.classList.remove('active-popup');
+    })
+}
+
+function togglePassword () {
+    const inputPassword = document.querySelector(".password-input");
+    const toggleEyeBefore = document.querySelector(".icon-after");
+    const toggleEyeAfter = document.querySelector(".icon-before");
+
+    toggleEyeBefore.addEventListener('click', () => {
+        if (inputPassword.type === "password") {
+            inputPassword.type = "text";
+        }
+    })
+    toggleEyeAfter.addEventListener("click", () => {
+        if (inputPassword.type === "text") {
+            inputPassword.type = "password";
+        }
+    })
 }
 
 // Running text
@@ -86,8 +107,9 @@ function copyrightDate () {
 }
 
 navbarActive();
-boxLogin();
 headerScroll();
+boxLogin();
+togglePassword();
 slideDownfaq();
-scrollTop();
 copyrightDate();
+scrollTop();

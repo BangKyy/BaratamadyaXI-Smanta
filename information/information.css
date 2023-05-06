@@ -89,6 +89,12 @@ a {
     cursor: pointer;
     font-weight: 600;
 }
+.main-option-navbar-2 {
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 8px;
+}
 .btnActive {
     display: none;
     border: 2px solid #42465664;
@@ -188,10 +194,10 @@ a {
     -webkit-backdrop-filter: blur(7.5px);
     border: 1px solid rgba(255, 255, 255, 0.31);
     overflow: hidden;
-    transition: top 0s 0.2s ease-in-out, opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out;
+    transition: height .2s ease;
 }
 .form-box form {
-    padding: 0 40px;
+    padding: 0 30px;
     width: 100%;
 }
 .wrapper .icon-close {
@@ -392,6 +398,7 @@ a {
     border-radius: 20px;
     padding: 4px 10px;
     font-size: 12px;
+    cursor: default;
 }
 .tag-info:hover {
     background: #f5f9ffab;
@@ -618,13 +625,16 @@ a {
 }
 .right-date-info .mid .month {
     font-size: 14px;
+    text-transform: uppercase;
     font-weight: var(--bold-3);
 }
-.right-date-info .mid h4 {
+.right-date-info .mid .date-day {
     font-size: 52px;
+    text-transform: uppercase;
 }
-.right-date-info .mid h6 {
+.right-date-info .mid .day {
     font-size: 13px;
+    text-transform: uppercase;
 }
 .right-date-info .date-info h5 {
     font-weight: var(--bold-2);
@@ -1097,13 +1107,17 @@ a {
     .logos-navbar {
         width: 45px;
     }
-    .main-option-navbar {
+    .main-option-navbar,
+    .main-option-navbar-2 {
         font-size: 12px;
     }
     .sign-btn {
         padding: 4px 10px;
         font-size: 12px;
         border-radius: 5px;
+    }
+    .wrapper {
+        padding: 14rem 4rem;
     }
     .main-info-page {
         display: flex;
@@ -1189,7 +1203,8 @@ a {
         padding: 100px 20px;
         transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
     }
-    .main-option-navbar {
+    .main-option-navbar,
+    .main-option-navbar-2 {
         font-size: 18px;
     }
     .btnActive {
@@ -1204,6 +1219,12 @@ a {
     }
     .sign-btn {
         display: none;
+    }
+    .wrapper{
+        padding: 12rem 4rem;
+    }
+    .form-box {
+        height: 400px;
     }
     .main-info-page {
         display: flex;
@@ -1230,6 +1251,12 @@ a {
     }
     .sign-btn {
         display: none;
+    }
+    .wrapper{
+        padding: 10rem 2rem;
+    }
+    .form-box {
+        height: 450px;
     }
     .main-info-page {
         width: 100%;

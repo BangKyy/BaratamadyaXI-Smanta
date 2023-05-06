@@ -1062,6 +1062,9 @@ a {
         font-size: 12px;
         border-radius: 5px;
     }
+    .wrapper {
+        padding: 14rem 4rem;
+    }
     .home-title {
         font-size: 28px;
     }
@@ -1232,7 +1235,7 @@ a {
         display: none;
     }
     .wrapper{
-        padding: 8rem 4rem;
+        padding: 12rem 4rem;
     }
     .form-box {
         height: 400px;
@@ -1339,7 +1342,7 @@ a {
         display: none;
     }
     .wrapper{
-        padding: 8rem 2rem;
+        padding: 10rem 2rem;
     }
     .form-box {
         height: 450px;
