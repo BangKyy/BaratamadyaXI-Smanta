@@ -12,7 +12,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 100%;
     width: 100%;
 }

@@ -16,3 +16,4 @@ function countdownDate () {
         document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
     }, second)
 }
+countdownDate();
