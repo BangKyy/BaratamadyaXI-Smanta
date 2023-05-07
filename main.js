@@ -2,7 +2,7 @@ function navbarActive() {
     let menu = document.querySelector('.menu-icon');
     let navbar = document.querySelector('.navbar-right-section');
     let navbarLogin = document.querySelector('.btnActive');
-    let wrappers = document.querySelector('.wrapper');
+    let wrapper = document.querySelector('.wrapper');
 
     menu.addEventListener('click', () => {
         navbar.classList.toggle('open-menu');
@@ -12,7 +12,7 @@ function navbarActive() {
     navbarLogin.addEventListener("click", () => {
         navbar.classList.remove("open-menu");
         menu.classList.remove("move");
-        wrappers.classList.add('active-popup');
+        wrapper.classList.add('active-popup');
     });
 
     window.addEventListener('scroll', () => {
@@ -44,7 +44,7 @@ function boxLogin () {
 
     window.addEventListener("scroll", () => {
         wrapper.classList.remove('active-popup');
-    })
+    });
 }
 
 function togglePassword () {

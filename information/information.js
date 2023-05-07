@@ -12,7 +12,7 @@ function navbarActive() {
   navbarLogin.addEventListener("click", () => {
       navbar.classList.remove("open-menu");
       menu.classList.remove("move");
-      wrappers.classList.add('active-popup');
+      wrapper.classList.add('active-popup');
   });
 
   window.addEventListener('scroll', () => {
@@ -45,6 +45,10 @@ function boxLogin () {
   iconClose.addEventListener('click', () => {
       wrapper.classList.remove('active-popup');
   });
+
+  window.addEventListener("scroll", () => {
+      wrapper.classList.remove('active-popup');
+  });
 }
 
 function togglePassword () {
@@ -62,6 +66,39 @@ function togglePassword () {
           inputPassword.type = "password";
       }
   })
+}
+
+function downloadBtn () {
+  // Daftar URL file yang akan diunduh
+  const urls = [
+    "../files/BUKU_REFERENSI.pdf",
+    "../files/KARTU_LUKA.pdf",
+    "../files/FORM_BIODATA_PESERTA.xls",
+    "../files/FORMULIR_PENDAFTARAN_PESERTA_BARATA_MADYA_XI.pdf"
+  ];
+
+  // Fungsi untuk mengunduh file
+  function downloadFile(url) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = url.split("/").pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // Loop melalui daftar URL dan memanggil fungsi downloadFile untuk setiap URL
+  for (let i = 0; i < urls.length; i++) {
+    downloadFile(urls[i]);
+  }
+}
+
+function clickDownloadBtn () {
+  const download = document.querySelector(".download");
+
+  download.addEventListener("click", () => {
+    downloadBtn();
+  });
 }
 
 function shareModal () {
@@ -122,7 +159,7 @@ function dateInfo () {
   const d = new Date();
 
   document.querySelector(".month").innerHTML = months[dateMonth.getMonth()];
-  document.querySelector(".date-day").innerHTML = dateDay.getDay();
+  document.querySelector(".date-day").innerHTML = dateDay.getDate();
   document.querySelector(".day").innerHTML = days[d.getDay()];
 }
 
@@ -139,6 +176,7 @@ function copyrightDate () {
 
 navbarActive();
 headerScroll();
+clickDownloadBtn();
 shareModal();
 // flip();
 boxLogin();
