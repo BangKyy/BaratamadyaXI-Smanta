@@ -118,6 +118,7 @@ a {
     cursor: pointer;
     font-weight: 600;
     margin-left: 8px;
+    display: none;
 }
 .btnActive {
     display: none;

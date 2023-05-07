@@ -74,22 +74,25 @@ function downloadBtn () {
     "../files/BUKU_REFERENSI.pdf",
     "../files/KARTU_LUKA.pdf",
     "../files/FORM_BIODATA_PESERTA.xls",
-    "../files/FORMULIR_PENDAFTARAN_PESERTA_BARATA_MADYA_XI.pdf"
+    "../files/FORMULIR_PENDAFTARAN_PESERTA_BARATA_MADYA_XI.pdf",
+    "../files/JUKLAK_JUKNIS_BARATA_MADYA_XI.pdff"
   ];
 
   // Fungsi untuk mengunduh file
   function downloadFile(url) {
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = url.split("/").pop();
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = url.split("/").pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
   }
 
-  // Loop melalui daftar URL dan memanggil fungsi downloadFile untuk setiap URL
-  for (let i = 0; i < urls.length; i++) {
-    downloadFile(urls[i]);
+  if (confirm("Izinkan unduh beberapa file?")) {
+    // Loop melalui daftar URL dan memanggil fungsi downloadFile untuk setiap URL
+    for (let i = 0; i < urls.length; i++) {
+      downloadFile(urls[i]);
+    }
   }
 }
 
@@ -164,7 +167,41 @@ function dateInfo () {
 }
 
 function dateCountdown () {
-  const date = new Date();
+  var countDownDate = new Date("June 4, 2023 00:00:00").getTime();
+  // var countDownDate = new Date("May 7, 2023 18:04:00").getTime();
+
+  const leadingZero = (number) => {
+    return parseInt(number) < 10 ? "0" + number : "" + number;
+  };
+
+  // Run myfunc every second
+  var myfunc = setInterval(function() {
+    var now = new Date().getTime();
+    var timeleft = countDownDate - now;
+        
+    // Calculating the days, hours, minutes and seconds left
+    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        
+    // Result is output to the specific element
+    document.querySelector(".days").innerHTML = leadingZero(days);
+    document.querySelector(".hours").innerHTML = leadingZero(hours);
+    document.querySelector(".minutes").innerHTML = leadingZero(minutes);
+    document.querySelector(".seconds").innerHTML = leadingZero(seconds);
+        
+    // Display the message when countdown is over
+    if (timeleft < 0) {
+        clearInterval(myfunc);
+        document.querySelector(".days").innerHTML = "00"
+        document.querySelector(".hours").innerHTML = "00" 
+        document.querySelector(".minutes").innerHTML = "00"
+        document.querySelector(".seconds").innerHTML = "00"
+        document.querySelector(".validation-btn").innerHTML = "DITUTUP";
+        document.querySelector(".validation-btn").link.href = "#";
+    }
+  }, 1000);
 }
 
 function copyrightDate () {
@@ -176,6 +213,7 @@ function copyrightDate () {
 
 navbarActive();
 headerScroll();
+togglePassword();
 clickDownloadBtn();
 shareModal();
 // flip();

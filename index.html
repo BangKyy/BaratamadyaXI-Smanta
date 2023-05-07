@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta property="og:title" content="BARATA MADYA XI SMANTA 2023">
+    <meta property="og:description" content="Dengan BARATA MADYA, Semangat Menggapai Asa, Membangun Generasi Cerdas Penerus Bangsa.">
+    <meta property="og:image" content="images/Maskot-Event.png">
+    <meta name="keywords" content="barata madya xi smanta, smanta, Barata Madya XI Smanta, PMR Smanta, Praja Wira Smanta, Barata Madya, sma negeri 01 talun, SMA Negeri 01 Talun, SMAN 01 Talun, Subseksi smanta, PMR blitar, Subseksi berbasis website, Subseksi modern">
+
     <!-- FAV ICONS -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/FavAssets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/FavAssets/favicon-32x32.png">
@@ -17,6 +22,10 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="comingsoon.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>BARATA MADYA XI SMANTA 2023</title>
 
@@ -26,7 +35,7 @@
 </head>
 
 <body>
-    <a href="#" class="scroll-top">
+    <!-- <a href="#" class="scroll-top">
         <i class='bx bxs-chevrons-up' ></i>
     </a>
     <nav class="navbar-section container">
@@ -38,11 +47,11 @@
         </div>
         <div class="navbar-right-section navbar">
             <a href="./information/" class="main-option-navbar">Informasi Lomba</a>
-            <!-- <a href="./champion/" class="main-option-navbar-2">Pemenang</a> -->
+            <a href="./champion/" class="main-option-navbar-2">Pemenang</a>
             <button class="btnNon btnActive">Masuk</button>
         </div>
         <div class="sign-btn-container">
-            <!-- <a href="" class="sign-btn login-btn btn btnLogin-popup">Masuk</a> -->
+            <a href="" class="sign-btn login-btn btn btnLogin-popup" style="display: none;">Masuk</a>
             <button class="sign-btn login-btn btn btnLogin-popup">Masuk</button>
         </div>
         <div class="menu-icon">
@@ -52,43 +61,41 @@
         </div>
     </nav>
 
-    <!-- <div class="main-wrapper"> -->
-        <div class="wrapper">
-            <div class="form-box login">
-                <span class="icon-close">
-                    <i class="bi bi-x"></i>
-                </span>
-                <h2>Masuk</h2>
-                <form class="login-form">
-                    <div class="input-box">
-                        <div class="icon">
-                            <i class="bi bi-person"></i>
-                        </div>
-                        <input type="text" name="" class="username-input" required>
-                        <label for="">Username</label>
+    <div class="wrapper">
+        <div class="form-box login">
+            <span class="icon-close">
+                <i class="bi bi-x"></i>
+            </span>
+            <h2>Masuk</h2>
+            <form class="login-form">
+                <div class="input-box">
+                    <div class="icon">
+                        <i class="bi bi-person"></i>
                     </div>
-                    <div class="input-box">
-                        <div class="icon">
-                            <i class="bi bi-eye icon-before eye-icon-disabled"></i>
-                            <i class="bi bi-eye-slash icon-after"></i>
-                        </div>
-                        <input type="password" name="" class="password-input" required>
-                        <label for="">Password</label>
+                    <input type="text" name="" class="username-input" required>
+                    <label for="">Username</label>
+                </div>
+                <div class="input-box">
+                    <div class="icon">
+                        <i class="bi bi-eye icon-before eye-icon-disabled"></i>
+                        <i class="bi bi-eye-slash icon-after"></i>
                     </div>
-                    <div class="remember-forgot">
-                        <label for="">
-                            <input type="checkbox" name="">Ingat saya
-                        </label>
-                        <a href="">Lupa Password?</a>
-                    </div>
-                    <input type="submit" class="btn form-btn"></input>
-                    <div class="login-register">
-                        <p>Belum memiliki akun? <a href="https://forms.gle/sXfAJJ5ud771Fod57" target="_blank" class="register-link">Daftar</a></p>
-                    </div>
-                </form>
-            </div>
+                    <input type="password" name="" class="password-input" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label for="">
+                        <input type="checkbox" name="">Ingat saya
+                    </label>
+                    <a href="">Lupa Password?</a>
+                </div>
+                <input type="submit" class="btn form-btn"></input>
+                <div class="login-register">
+                    <p>Belum memiliki akun? <a href="https://forms.gle/sXfAJJ5ud771Fod57" target="_blank" class="register-link">Daftar</a></p>
+                </div>
+            </form>
         </div>
-    <!-- </div> -->
+    </div>
 
     <div class="home-page-section container">
         <div class="home-main-img">
@@ -131,10 +138,6 @@
            </div>
         </div>
     </div>
-    
-    <!-- <div class="wave-section container">
-        <img src="images/wave1.svg" alt="" class="wave1">
-    </div> -->
 
     <div class="about-page containers">
         <div class="about-title-section">
@@ -466,9 +469,50 @@
                 <h5 class="footer-text-bottom">Design by <a href="https://ngabskyy.netlify.app" target="_blank"><span class="design-name">Kyy</span></a></h5>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <script type="module" src="./utils/login-popup.js"></script>
-    <script type="module" src="./main.js"></script>
+    <!-- <span class="bar"><i class="fa fa-bars"></i></span>
+  <nav class="toggle-nav">
+    <ul class="listing">
+      <li>
+        <a href="https://www.instagram.com/stackfindover">
+          <i class="fa fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+</nav> -->
+<header class="header-comingsoon">
+    <div class="header-logo">
+        <img src="images/Maskot-Event.png" alt="" class="logo-comingsoon">
+        <h4 class="title-comingsoon">BARATA MADYA XI SMANTA</h4>
+    </div>
+    <div class="header-icon">
+        <a href="https://www.instagram.com/stackfindover" target="_blank" class="icon-link">
+            <i class="fa fa-instagram icon"></i>
+        </a>
+    </div>
+</header>
+  <section class="coming-soon">
+    <div class="coming-soon-inner">
+      <h1 class="heading">Segera Hadir</h1>
+      <h2 class="small-heading">dalam pembuatan</h2>
+      <div class="counter-timer">
+        <ul>
+            <li><span id="days"></span>Hari</li>
+            <li><span id="hours"></span>Jam</li>
+            <li><span id="minutes"></span>Menit</li>
+            <li><span id="seconds"></span>Detik</li>
+          </ul>
+        </div>
+    </div>
+</section>
+<footer class="footer-comingsoon">
+    <h5 class="footer-title">Copyright © BARATA MADYA XI SMANTA</h5>
+    <h5 class="footer-text-bottom">Design by <a href="https://ngabskyy.netlify.app" target="_blank"><span class="design-name">Kyy</span></a></h5>
+</footer>
+
+    <!-- <script type="module" src="./utils/login-popup.js"></script>
+    <script type="module" src="./main.js"></script> -->
+    <script type="module" src="./comingsoon.js"></script>
 </body>
 </html>

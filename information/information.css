@@ -652,64 +652,9 @@ a {
     height: 1px;
     background-color: var(--textColor);
 }
-.flip-card {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2);
-    border-radius: .1em;
-}
-.top,
-.bottom,
-.flip-card .top-flip,
-.flip-card .bottom-flip {
-    height: .75em;
-    line-height: 1;
-    padding: .25em;
-    font-size: 2rem;
-    overflow: hidden;
-}
-.top,
-.flip-card .top-flip {
-    background-color: #f7f7f7;
-    border-top-right-radius: .1em;
-    border-top-left-radius: .1em;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.bottom,
-.flip-card .bottom-flip {
-    background-color: white;
-    display: flex;
-    align-items: flex-end;
-    border-bottom-right-radius: .1em;
-    border-bottom-left-radius: .1em;
-}
-.flip-card .top-flip {
-    position: absolute;
-    width: 100%;
-    animation: flip-top 250ms ease-in;
-    transform-origin: bottom;
-}
-@keyframes flip-top {
-    100% {
-      transform: rotateX(90deg);
-    }
-}
-.flip-card .bottom-flip {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    animation: flip-bottom 250ms ease-out 250ms;
-    transform-origin: top;
-    transform: rotateX(90deg);
-}
-@keyframes flip-bottom {
-    100% {
-      transform: rotateX(0deg);
-    }
-}
 .time-container {
     display: flex;
+    align-items: center;
     gap: .5em;
     justify-content: center;
     margin-top: 2rem;
@@ -718,19 +663,31 @@ a {
 .container-segment {
     display: flex;
     flex-direction: column-reverse;
-    /* gap: .1em; */
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    padding: 0 6px;
 }
-.segment {
+.segment-time {
     display: flex;
-    /* gap: .1em; */
+    justify-content: center;
+    background-color: var(--boxColor);
+    border-radius: 8px 8px 0 0;
+    padding: 8px 14px;
+    width: 100%;
+    color: var(--textColor);
+    font-size: 28px;
 }
 .segment-title {
-    margin-top: 2px;
+    /* margin-top: 2px; */
+    padding: 4px 14px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    background-color: var(--textColor);
     font-size: 12px;
     font-weight: var(--bold-3);
-    color: #fbfbfbd0;
+    color: var(--bgColor);
 }
 .validation-btn-section {
     display: flex;
