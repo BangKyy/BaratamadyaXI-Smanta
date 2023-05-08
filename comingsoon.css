@@ -12,7 +12,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* overflow: hidden; */
+    overflow: hidden;
     height: 100%;
     width: 100%;
 }
@@ -197,14 +197,16 @@ ul.listing > li > a:hover{
     align-items: center;
 }
 .footer-comingsoon h5 {
-    font-weight: var(--bold-2);
-    color: var(--textColor);
+    font-weight: 550;
+    color: #0000009a;
 }
 .design-name {
-    color: var(--textColor);
+    text-decoration: underline;
+    font-weight: 600;
+    color: #0000009a;
 }
 .design-name:hover {
-    color: var(--textColorYellow);
+    color: #738ccf;
 }
 @media only screen and (max-width: 400px) and (min-width: 200px) {
     .header-comingsoon {
@@ -215,6 +217,12 @@ ul.listing > li > a:hover{
         line-height: 40px;
       text-transform: uppercase;
       padding: 10px 20px;
+  }
+  .coming-soon {
+    height: 70vh;
+  }
+  .counter-timer {
+    bottom: -85px;
   }
   .small-heading {
       font-size: 20px;
@@ -239,14 +247,17 @@ ul.listing > li > a:hover{
     justify-content: center;
     gap: 8px;
         padding: 12px 18px;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
+        margin-top: 6rem;
+        margin-bottom: 4rem;
+    }
+    .footer-comingsoon h5 {
+        font-size: 12px;
     }
 } 
 @media only screen and (max-width: 767px) and (min-width: 401px) {
     .footer-comingsoon {
-        margin-top: 6rem;
-        margin-bottom: 1rem;
+        margin-top: 4rem;
+        margin-bottom: 3rem;
     }
   .heading {
       font-size: 40px;
