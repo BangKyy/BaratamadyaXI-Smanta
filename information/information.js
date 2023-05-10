@@ -12,7 +12,7 @@ function navbarActive() {
   navbarLogin.addEventListener("click", () => {
       navbar.classList.remove("open-menu");
       menu.classList.remove("move");
-      wrapper.classList.add('active-popup');
+      // wrapper.classList.add('active-popup');
   });
 
   window.addEventListener('scroll', () => {
@@ -20,9 +20,9 @@ function navbarActive() {
       menu.classList.remove("move");
   });
 
-  window.addEventListener("scroll", () => {
-      wrapper.classList.remove('active-popup');
-  });
+  // window.addEventListener("scroll", () => {
+  //     wrapper.classList.remove('active-popup');
+  // });
 }
 
 function headerScroll () {
@@ -39,7 +39,8 @@ function boxLogin () {
   const iconClose = document.querySelector('.icon-close');
 
   btnPopup.addEventListener('click', () => {
-      wrapper.classList.add('active-popup');
+      // wrapper.classList.add('active-popup');
+      errorAlert();
   });
 
   iconClose.addEventListener('click', () => {
@@ -75,7 +76,7 @@ function downloadBtn () {
     "../files/KARTU_LUKA.pdf",
     "../files/FORM_BIODATA_PESERTA.xls",
     "../files/FORMULIR_PENDAFTARAN_PESERTA_BARATA_MADYA_XI.pdf",
-    "../files/JUKLAK_JUKNIS_BARATA_MADYA_XI.pdff"
+    "../files/JUKLAK_JUKNIS_BARATA_MADYA_XI.pdf"
   ];
 
   // Fungsi untuk mengunduh file
@@ -100,7 +101,8 @@ function clickDownloadBtn () {
   const download = document.querySelector(".download");
 
   download.addEventListener("click", () => {
-    downloadBtn();
+    errorAlert();
+    // downloadBtn();
   });
 }
 
@@ -134,6 +136,15 @@ function shareModal () {
       }, 1000);
     }
   }
+}
+
+function errorAlert () {
+  Swal.fire({
+  icon: 'error',
+  title: 'Belum Tersedia',
+  text: 'Sedang dalam perbaikan!',
+  // footer: '<a href="">Why do I have this issue?</a>'
+  })
 }
 
 function copyAlert () {

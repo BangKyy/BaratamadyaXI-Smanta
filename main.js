@@ -1,24 +1,28 @@
 function navbarActive() {
-    let menu = document.querySelector('.menu-icon');
-    let navbar = document.querySelector('.navbar-right-section');
-    let navbarLogin = document.querySelector('.btnActive');
-    let wrapper = document.querySelector('.wrapper');
+  let menu = document.querySelector('.menu-icon');
+  let navbar = document.querySelector('.navbar-right-section');
+  let navbarLogin = document.querySelector('.btnActive');
+  let wrapper = document.querySelector('.wrapper');
 
-    menu.addEventListener('click', () => {
-        navbar.classList.toggle('open-menu');
-        menu.classList.toggle("move");
-    });
+  menu.addEventListener('click', () => {
+      navbar.classList.toggle('open-menu');
+      menu.classList.toggle("move");
+  });
 
-    navbarLogin.addEventListener("click", () => {
-        navbar.classList.remove("open-menu");
-        menu.classList.remove("move");
-        wrapper.classList.add('active-popup');
-    });
+  navbarLogin.addEventListener("click", () => {
+      navbar.classList.remove("open-menu");
+      menu.classList.remove("move");
+      // wrapper.classList.add('active-popup');
+  });
 
-    window.addEventListener('scroll', () => {
-        navbar.classList.remove("open-menu");
-        menu.classList.remove("move");
-    });
+  window.addEventListener('scroll', () => {
+      navbar.classList.remove("open-menu");
+      menu.classList.remove("move");
+  });
+
+  // window.addEventListener("scroll", () => {
+  //     wrapper.classList.remove('active-popup');
+  // });
 }
 
 function headerScroll () {
@@ -33,19 +37,20 @@ function boxLogin () {
     const wrapper = document.querySelector('.wrapper');
     const btnPopup = document.querySelector('.btnLogin-popup');
     const iconClose = document.querySelector('.icon-close');
-
+  
     btnPopup.addEventListener('click', () => {
-        wrapper.classList.add('active-popup');
+        // wrapper.classList.add('active-popup');
+        errorAlert();
     });
-
+  
     iconClose.addEventListener('click', () => {
         wrapper.classList.remove('active-popup');
     });
-
+  
     window.addEventListener("scroll", () => {
         wrapper.classList.remove('active-popup');
     });
-}
+  }
 
 function togglePassword () {
     const inputPassword = document.querySelector(".password-input");
@@ -64,17 +69,14 @@ function togglePassword () {
     })
 }
 
-// Running text
-// function runningText(textAnimation) {
-//     let textSelected = 0;
-//     for (let i = 0; i < textAnimation.options.length; i++) {
-//       if (textAnimation.options[i].selected) {
-//         textSelected++;
-//       }
-//     console.log(runningText);
-//     }
-//     return textSelected;
-// }
+function errorAlert () {
+  Swal.fire({
+  icon: 'error',
+  title: 'Belum Tersedia',
+  text: 'Sedang dalam perbaikan!',
+  // footer: '<a href="">Why do I have this issue?</a>'
+  })
+}
 
 function slideDownfaq () {
     let li = document.querySelectorAll(".faq-text li");

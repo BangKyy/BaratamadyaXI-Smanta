@@ -1224,6 +1224,17 @@ a {
     .popup {
         max-width: 280px;
     }
+    .segment-time {
+        border-radius: 8px 8px 0 0;
+        padding: 8px 10px;
+        font-size: 18px;
+    }
+    .segment-title {
+        /* margin-top: 2px; */
+        padding: 4px 10px;
+        border-radius: 0 0 8px 8px;
+        font-size: 10px;
+    }
     .content p {
         font-size: 14px;
     }
