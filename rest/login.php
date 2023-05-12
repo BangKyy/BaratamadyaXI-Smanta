@@ -27,6 +27,20 @@ switch ($reqMethod) {
         echo json_encode($output);
         break;
     }
+    case "PATCH": {
+        $username = getRequest("username", $REQUEST);
+        $output = [
+            "error" => false,
+            "errorMessages" => "",
+        ];
+        $user = getUsername($username);
+        if (!$user) {
+            $output["error"] = true;
+            $output["errorMessages"] = "Username tidak valid";
+        }
+        echo json_encode($output);
+        break;
+    }
     default: {
         $errorObj = [
             "error" => true,

@@ -1,3 +1,20 @@
+import { deleteCookie, getCookie } from "../lib/cookie.js";
+import { getRootDirectory } from "../utils/path.js";
+
+const toggleLoginBtn = () => {
+  const [loginBtn, logoutBtn, loginBtnMobile, logoutBtnMobile] = [
+    document.querySelector(".btnLogin-popup"),
+    document.querySelector(".btnLogout-popup"),
+    document.querySelector(".btnActive"),
+    document.querySelector(".btnUnactive"),
+  ];
+  const username = getCookie(document, { name: "username" });
+  username ? loginBtn.classList.add("btn-hidden") : loginBtn.classList.remove("btn-hidden");
+  username ? loginBtnMobile.classList.add("btn-hidden") : loginBtnMobile.classList.remove("btn-hidden");
+  username ? logoutBtn.classList.remove("btn-hidden") : logoutBtn.classList.add("btn-hidden");
+  username ? logoutBtnMobile.classList.remove("btn-hidden") : logoutBtnMobile.classList.add("btn-hidden");
+};
+
 function navbarActive() {
   let menu = document.querySelector('.menu-icon');
   let navbar = document.querySelector('.navbar-right-section');
@@ -12,7 +29,7 @@ function navbarActive() {
   navbarLogin.addEventListener("click", () => {
       navbar.classList.remove("open-menu");
       menu.classList.remove("move");
-      // wrapper.classList.add('active-popup');
+      wrapper.classList.add('active-popup');
   });
 
   window.addEventListener('scroll', () => {
@@ -20,10 +37,28 @@ function navbarActive() {
       menu.classList.remove("move");
   });
 
-  // window.addEventListener("scroll", () => {
-  //     wrapper.classList.remove('active-popup');
-  // });
+  window.addEventListener("scroll", () => {
+      wrapper.classList.remove('active-popup');
+  });
 }
+
+const logout = () => {
+  deleteCookie(document, { name: "username" });
+  location.reload();
+};
+
+const logoutEvent = () => {
+  const [logoutBtn, logoutBtnMobile] = [
+      document.querySelector(".btnLogout-popup"),
+      document.querySelector(".btnUnactive"),
+  ];
+  logoutBtn.addEventListener("click", () => {
+      logout();
+  });
+  logoutBtnMobile.addEventListener("click", () => {
+      logout();
+  });
+};
 
 function headerScroll () {
   let navbarScroll = document.querySelector(".navbar-section");
@@ -39,8 +74,8 @@ function boxLogin () {
   const iconClose = document.querySelector('.icon-close');
 
   btnPopup.addEventListener('click', () => {
-      // wrapper.classList.add('active-popup');
-      errorAlert();
+      wrapper.classList.add('active-popup');
+      // errorAlert();
   });
 
   iconClose.addEventListener('click', () => {
@@ -69,40 +104,82 @@ function togglePassword () {
   })
 }
 
-function downloadBtn () {
-  // Daftar URL file yang akan diunduh
-  const urls = [
-    "../files/BUKU_REFERENSI.pdf",
-    "../files/KARTU_LUKA.pdf",
-    "../files/FORM_BIODATA_PESERTA.xls",
-    "../files/FORMULIR_PENDAFTARAN_PESERTA_BARATA_MADYA_XI.pdf",
-    "../files/JUKLAK_JUKNIS_BARATA_MADYA_XI.pdf"
-  ];
-
-  // Fungsi untuk mengunduh file
-  function downloadFile(url) {
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = url.split("/").pop();
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+const getUser = async (username = "") => {
+  try {
+    const payload = { username };
+    const rootDirectory = getRootDirectory();
+    const rawData = await fetch(`${rootDirectory}rest/login.php`, {
+      method: "PATCH",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    const data = await rawData.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+    return null;
   }
+};
 
-  if (confirm("Izinkan unduh beberapa file?")) {
-    // Loop melalui daftar URL dan memanggil fungsi downloadFile untuk setiap URL
-    for (let i = 0; i < urls.length; i++) {
-      downloadFile(urls[i]);
-    }
+const checkUserSession = async (callback = Function(), errCallback = Function()) => {
+  try {
+    const user = getCookie(document, { name: "username" });
+    if (!user) throw new Error("User belum login");
+    console.log(user);
+    const userExists = await getUser(user);
+    console.log(userExists);
+    if (!userExists) throw new Error("User tidak ada di database");
+    callback();
+  } catch (err) {
+    console.log(err);
+    errCallback(err);
   }
-}
+};
+
+// function downloadBtn () {
+//   // Daftar URL file yang akan diunduh
+//   const urls = [
+//     "../files/BUKU_REFERENSI.pdf",
+//     "../files/KARTU_LUKA.pdf",
+//     "../files/FORM_BIODATA_PESERTA.xls",
+//     "../files/FORMULIR_PENDAFTARAN_PESERTA_BARATA_MADYA_XI.pdf",
+//     "../files/JUKLAK_JUKNIS_BARATA_MADYA_XI.pdf"
+//   ];
+
+//   // Fungsi untuk mengunduh file
+//   function downloadFile(url) {
+//       const link = document.createElement("a");
+//       link.href = url;
+//       link.download = url.split("/").pop();
+//       document.body.appendChild(link);
+//       link.click();
+//       document.body.removeChild(link);
+//   }
+
+//   if (confirm("Izinkan unduh beberapa file?")) {
+//     // Loop melalui daftar URL dan memanggil fungsi downloadFile untuk setiap URL
+//     for (let i = 0; i < urls.length; i++) {
+//       downloadFile(urls[i]);
+//     }
+//   }
+// }
+
+const downloadUrl = () => {
+  window.open("https://drive.google.com/drive/folders/11dRXgkeBOdUIJ0OaMrRj_FyiKxdATwjM", "_blank");
+};
 
 function clickDownloadBtn () {
   const download = document.querySelector(".download");
 
   download.addEventListener("click", () => {
-    errorAlert();
-    // downloadBtn();
+    checkUserSession(() => {
+      downloadUrl();
+    }, (err) => {
+      errorAlert("Terjadi Kesalahan", "Anda harus login");
+    });
   });
 }
 
@@ -138,11 +215,11 @@ function shareModal () {
   }
 }
 
-function errorAlert () {
+function errorAlert (title = "Belum Tersedia", text = "Sedang dalam perbaikan!") {
   Swal.fire({
   icon: 'error',
-  title: 'Belum Tersedia',
-  text: 'Sedang dalam perbaikan!',
+  title,
+  text,
   // footer: '<a href="">Why do I have this issue?</a>'
   })
 }
@@ -209,8 +286,6 @@ function dateCountdown () {
         document.querySelector(".hours").innerHTML = "00" 
         document.querySelector(".minutes").innerHTML = "00"
         document.querySelector(".seconds").innerHTML = "00"
-        document.querySelector(".validation-btn").innerHTML = "DITUTUP";
-        document.querySelector(".validation-btn").link.href = "#";
     }
   }, 1000);
 }
@@ -227,8 +302,9 @@ headerScroll();
 togglePassword();
 clickDownloadBtn();
 shareModal();
-// flip();
 boxLogin();
 dateInfo();
 dateCountdown();
 copyrightDate();
+toggleLoginBtn();
+logoutEvent();

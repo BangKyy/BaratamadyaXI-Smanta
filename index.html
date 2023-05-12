@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/FavAssets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/FavAssets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/FavAssets/favicon-16x16.png">
-    <link rel="manifest" href="images/FavAssets/site.webmanifest">
+    <!-- <link rel="manifest" href="images/FavAssets/site.webmanifest"> -->
     <link rel="mask-icon" href="images/FavAssets/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
@@ -48,10 +48,12 @@
             <a href="./information/" class="main-option-navbar">Informasi Lomba</a>
             <a href="./champion/" class="main-option-navbar-2">Pemenang</a>
             <button class="btnNon btnActive">Masuk</button>
+            <button class="btnUnon btnUnactive btn-hidden">Keluar</button>
         </div>
         <div class="sign-btn-container">
-            <a href="" class="sign-btn login-btn btn btnLogin-popup" style="display: none;">Masuk</a>
+            <!-- <a href="" class="sign-btn login-btn btn btnLogin-popup" style="display: none;">Masuk</a> -->
             <button class="sign-btn login-btn btn btnLogin-popup">Masuk</button>
+            <button class="logout-btn btn btnLogout-popup btn-hidden">Keluar</button>
         </div>
         <div class="menu-icon">
             <div class="line1"></div>
@@ -66,7 +68,7 @@
                 <i class="bi bi-x"></i>
             </span>
             <h2>Masuk</h2>
-            <form class="login-form">
+            <div class="login-form">
                 <div class="input-box">
                     <div class="icon">
                         <i class="bi bi-person"></i>
@@ -83,16 +85,13 @@
                     <label for="">Password</label>
                 </div>
                 <div class="remember-forgot">
-                    <label for="">
-                        <input type="checkbox" name="">Ingat saya
-                    </label>
-                    <a href="">Lupa Password?</a>
+                    <a href="https://forms.gle/4HWYnpVqnFzRBgkk7">Lupa Password?</a>
                 </div>
-                <input type="submit" class="btn form-btn"></input>
+                <button type="submit" class="btn form-btn">Submit</button>
                 <div class="login-register">
                     <p>Belum memiliki akun? <a href="https://forms.gle/sXfAJJ5ud771Fod57" target="_blank" class="register-link">Daftar</a></p>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 
@@ -105,7 +104,7 @@
             <h5 class="home-sub-title">Tingkat Madya SMP/MTs Se-Eks Karesidenan Kediri Terbuka</h5>
             <h5 class="home-description">Dengan BARATA MADYA, Semangat Menggapai Asa, Membangun Generasi Cerdas Penerus Bangsa.</h5>
             <div class="home-btn-container">
-                <a href="./files/JUKLAK_JUKNIS_BARATA_MADYA_XI.pdf" download  class="home-btn">Petunjuk Umum</a>
+                <a href="./files/PETUNJUK_UMUM_BARATA_MADYA_XI.pdf" download  class="home-btn">Petunjuk Umum</a>
             </div>
         </div>
     </div>

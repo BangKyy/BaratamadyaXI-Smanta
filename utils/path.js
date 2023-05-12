@@ -1,6 +1,6 @@
 export const getRootDirectory = () => {
     const hostname = window.location.hostname;
-    const localhostRoot = "http://localhost/BarataMadyaXI/";
+    const localhostRoot = "http://localhost/baratamadya-smanta/";
     const productionRoot = "/";
     return hostname === "localhost" ? localhostRoot : productionRoot;
 };

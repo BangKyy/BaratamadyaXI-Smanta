@@ -110,6 +110,8 @@ a {
     margin-left: 12px;
     gap: 12px;
 }
+.btnUnactive,
+.logout-btn,
 .sign-btn {
     border: 2px solid #42465664;
     border-radius: 8px;
@@ -119,11 +121,19 @@ a {
     cursor: pointer;
     background-color: transparent;
 }
+.btnUnactive,
+.logout-btn,
 .btnActive:hover,
 .login-btn:hover {
     background-color: var(--textColor);
     color: var(--bgColor);
     transition: all .4s ease;
+}
+.btn-hidden {
+    display: none;
+}
+.btnUnactive {
+    display: none;
 }
 /* .signup-btn {
     background-color: var(--textColor);
@@ -385,6 +395,15 @@ a {
     font-size: 12px;
     font-weight: 300;
     color: var(--bgColor);
+}
+.download {
+    background-color: var(--textColor);
+    border: none;
+    color: var(--bgColor);
+    cursor: pointer;
+}
+.download:hover {
+    background-color: var(--textBlackLight);
 }
 .tags-info {
     display: flex;
@@ -676,6 +695,12 @@ a {
     width: 100%;
     color: var(--textColor);
     font-size: 28px;
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    /* border-radius: 10px; */
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .segment-title {
     /* margin-top: 2px; */
@@ -695,6 +720,7 @@ a {
     padding: 0 1rem;
     margin-top: 2rem;
 }
+.validation-btn-closed,
 .validation-btn {
     display: flex;
     justify-content: center;
@@ -708,10 +734,14 @@ a {
     background-color: transparent;
     font-size: 18px;
 }
+.validation-btn-closed,
 .validation-btn:hover {
     background-color: var(--textColor);
     color: var(--bgColor);
     transition: all .4s ease;
+}
+.validation-btn-off {
+    display: none;
 }
     
 .competition-branch-page {
@@ -1164,6 +1194,7 @@ a {
     .main-option-navbar-2 {
         font-size: 18px;
     }
+    .btnUnactive,
     .btnActive {
         display: block;
     }
@@ -1174,6 +1205,7 @@ a {
         right: 0;
         transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
     }
+    .logout-btn,
     .sign-btn {
         display: none;
     }
@@ -1193,6 +1225,9 @@ a {
     }
     .footer-text {
         font-size: 12px;
+    }
+    .btn-hidden {
+        display: none;
     }
 }
 @media screen and (max-width: 420px) {
@@ -1303,5 +1338,8 @@ a {
     }
     .footer-text-copyright-bottom .left {
         padding-left: 8px;
+    }
+    .btn-hidden {
+        display: none;
     }
 }

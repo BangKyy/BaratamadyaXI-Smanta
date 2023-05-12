@@ -1,4 +1,5 @@
 import { getRootDirectory } from "./path.js";
+import { setCookie } from "../lib/cookie.js";
 
 // Icon password eye
 const iconEye = document.querySelector('.icon');
@@ -22,8 +23,18 @@ const showSuccess = async (title = "", text = "", icon = "success") => {
     await Swal.fire({ title, text, icon });
 };
 
+const saveUser = (username = "") => {
+    setCookie(document, {
+        name: "username",
+        value: username,
+        expires: 1000 * 60 * 60 * 2,
+    });
+};
+
 const sendForm = async (username, password) => {
     try {
+        username = username?.trim();
+        password = password?.trim();
         const payload = { username, password };
         const rootDirectory = getRootDirectory();
         const rawData = await fetch(`${rootDirectory}rest/login.php`, {
@@ -35,9 +46,11 @@ const sendForm = async (username, password) => {
             body: JSON.stringify(payload),
         });
         const data = await rawData.json();
-        if (data?.error === true) await showError("Error", "Data tidak valid");
+        if (data?.error === true) return await showError("Error", "Data tidak valid");
+        saveUser(username);
         await showSuccess("Berhasil", "Data berhasil diverifikasi");
         console.log(data);
+        location.reload();
     } catch (err) {
         const errorMessage = err instanceof Error ? "Data tidak valid" : err?.errorMessage;
         await showError("Error", errorMessage);

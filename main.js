@@ -1,3 +1,19 @@
+import { deleteCookie, getCookie } from "./lib/cookie.js";
+
+const toggleLoginBtn = () => {
+    const [loginBtn, logoutBtn, loginBtnMobile, logoutBtnMobile] = [
+      document.querySelector(".btnLogin-popup"),
+      document.querySelector(".btnLogout-popup"),
+      document.querySelector(".btnActive"),
+      document.querySelector(".btnUnactive"),
+    ];
+    const username = getCookie(document, { name: "username" });
+    username ? loginBtn.classList.add("btn-hidden") : loginBtn.classList.remove("btn-hidden");
+    username ? loginBtnMobile.classList.add("btn-hidden") : loginBtnMobile.classList.remove("btn-hidden");
+    username ? logoutBtn.classList.remove("btn-hidden") : logoutBtn.classList.add("btn-hidden");
+    username ? logoutBtnMobile.classList.remove("btn-hidden") : logoutBtnMobile.classList.add("btn-hidden");
+};
+
 function navbarActive() {
   let menu = document.querySelector('.menu-icon');
   let navbar = document.querySelector('.navbar-right-section');
@@ -12,7 +28,8 @@ function navbarActive() {
   navbarLogin.addEventListener("click", () => {
       navbar.classList.remove("open-menu");
       menu.classList.remove("move");
-      // wrapper.classList.add('active-popup');
+      wrapper.classList.add('active-popup');
+      console.log(19)
   });
 
   window.addEventListener('scroll', () => {
@@ -20,10 +37,28 @@ function navbarActive() {
       menu.classList.remove("move");
   });
 
-  // window.addEventListener("scroll", () => {
-  //     wrapper.classList.remove('active-popup');
-  // });
+  window.addEventListener("scroll", () => {
+      wrapper.classList.remove('active-popup');
+  });
 }
+
+const logout = () => {
+    deleteCookie(document, { name: "username" });
+    location.reload();
+};
+
+const logoutEvent = () => {
+    const [logoutBtn, logoutBtnMobile] = [
+        document.querySelector(".btnLogout-popup"),
+        document.querySelector(".btnUnactive"),
+    ];
+    logoutBtn.addEventListener("click", () => {
+        logout();
+    });
+    logoutBtnMobile.addEventListener("click", () => {
+        logout();
+    });
+};
 
 function headerScroll () {
     let navbarScroll = document.querySelector(".navbar-section");
@@ -39,8 +74,8 @@ function boxLogin () {
     const iconClose = document.querySelector('.icon-close');
   
     btnPopup.addEventListener('click', () => {
-        // wrapper.classList.add('active-popup');
-        errorAlert();
+        wrapper.classList.add('active-popup');
+        console.log(47);
     });
   
     iconClose.addEventListener('click', () => {
@@ -67,15 +102,6 @@ function togglePassword () {
             inputPassword.type = "password";
         }
     })
-}
-
-function errorAlert () {
-  Swal.fire({
-  icon: 'error',
-  title: 'Belum Tersedia',
-  text: 'Sedang dalam perbaikan!',
-  // footer: '<a href="">Why do I have this issue?</a>'
-  })
 }
 
 function slideDownfaq () {
@@ -115,3 +141,5 @@ togglePassword();
 slideDownfaq();
 copyrightDate();
 scrollTop();
+toggleLoginBtn();
+logoutEvent();

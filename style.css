@@ -135,6 +135,8 @@ a {
     margin-left: 12px;
     gap: 12px;
 }
+.btnUnactive,
+.logout-btn,
 .sign-btn {
     border: 2px solid #42465664;
     border-radius: 8px;
@@ -144,11 +146,19 @@ a {
     cursor: pointer;
     background-color: transparent;
 }
+.btnUnactive,
+.logout-btn,
 .btnActive:hover,
 .login-btn:hover {
     background-color: var(--textColor);
     color: var(--bgColor);
     transition: all .4s ease;
+}
+.btn-hidden {
+    display: none;
+}
+.btnUnactive {
+    display: none;
 }
 /* .signup-btn {
     background-color: var(--textColor);
@@ -1222,6 +1232,7 @@ a {
     .main-option-navbar-2 {
         font-size: 18px;
     }
+    .btnUnactive,
     .btnActive {
         display: block;
     }
@@ -1232,6 +1243,7 @@ a {
         right: 0;
         transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
     }
+    .logout-btn,
     .sign-btn {
         display: none;
     }
@@ -1326,6 +1338,9 @@ a {
     }
     .footer-text {
         font-size: 12px;
+    }
+    .btn-hidden {
+        display: none;
     }
 }
 @media screen and (max-width: 420px) {
@@ -1519,5 +1534,8 @@ a {
     }
     .footer-text-copyright-bottom .left {
         padding-left: 8px;
+    }
+    .btn-hidden {
+        display: none;
     }
 }
