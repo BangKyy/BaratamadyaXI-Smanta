@@ -111,10 +111,19 @@ a {
 .main-option-navbar {
     font-size: 14px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 8px;
+    border: 2px solid #42465664;
+    background-color: var(--textColor);
+    font-size: 12px;
+    color: var(--bgColor);
+}
+.main-option-navbar:hover {
+    background-color: #424656;
 }
 .main-option-navbar-2 {
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     font-weight: 600;
     margin-left: 8px;
@@ -124,16 +133,18 @@ a {
     display: none;
     border: 2px solid #42465664;
     border-radius: 8px;
-    padding: 6px 16px;
+    padding: 6px 70px;
     font-weight: 500;
     cursor: pointer;
     background-color: transparent;
+    font-size: 12px;
 }
 .sign-btn-container {
     position: relative;
     display: flex;
     margin-left: 12px;
     gap: 12px;
+    font-size: 12px;
 }
 .btnUnactive,
 .logout-btn,
@@ -1224,13 +1235,14 @@ a {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap: 2rem;
+        gap: 1rem;
         padding: 100px 20px;
         transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     .main-option-navbar,
     .main-option-navbar-2 {
-        font-size: 18px;
+        font-size: 12px;
+        padding: 6px 38px;
     }
     .btnUnactive,
     .btnActive {

@@ -1,3 +1,4 @@
+AOS.init();
 import { deleteCookie, getCookie } from "./lib/cookie.js";
 
 const toggleLoginBtn = () => {

@@ -1,6 +1,7 @@
 <?php
 require "../php-utils/login.php";
 
+header('Content-Type: application/json; charset=utf-8');
 $REQUEST = json_decode(file_get_contents('php://input'), true);
 $reqMethod = $_SERVER["REQUEST_METHOD"];
 

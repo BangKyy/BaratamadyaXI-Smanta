@@ -1,3 +1,4 @@
+AOS.init();
 import { deleteCookie, getCookie } from "../lib/cookie.js";
 import { getRootDirectory } from "../utils/path.js";
 
@@ -238,7 +239,7 @@ function copyAlert () {
   })
   Toast.fire({
     icon: 'success',
-    title: 'Link berhasil disalin'
+    title: 'Tautan berhasil disalin'
   })
 }
 
